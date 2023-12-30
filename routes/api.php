@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\User\ForgetController;
+use App\Http\Controllers\User\ResetController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +25,25 @@ use App\Http\Controllers\Admin\NotificationController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+// user login api start
+
+// login auth
+Route::post('/login',[AuthController::class,'Login']);
+// register routes
+
+Route::post('/register',[AuthController::class,'Register']);
+
+// forget password routes
+Route::post('/forgetpassword',[ForgetController::class,'ForgetPassword']);
+
+// Reset password routes
+Route::post('/resetpassword',[ResetController::class,'ResetPassword']);
+
+
+
+
+// user login api end
 
 Route::get('/getvisitor',[VisitorController::class,'GetVisitorDetails']);
 // contact base route
