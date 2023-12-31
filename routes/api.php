@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\ForgetController;
 use App\Http\Controllers\User\ResetController;
+use App\Http\Controllers\User\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -39,6 +40,9 @@ Route::post('/forgetpassword',[ForgetController::class,'ForgetPassword']);
 
 // Reset password routes
 Route::post('/resetpassword',[ResetController::class,'ResetPassword']);
+
+// user routes
+Route::get('/user',[UserController::class, 'User'])->middleware('auth:api');
 
 
 
